@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
 import ForgotPassword from './pages/auth/ForgotPassword'
@@ -8,16 +8,18 @@ import EmailVerification from './pages/auth/EmailVerification'
 import './index.css'
 
 const App: React.FC = () => {
+  const routes = useRoutes([
+    { path: '/', element: <Login /> },
+    { path: '/login', element: <Login /> },
+    { path: '/register', element: <Register /> },
+    { path: '/forgot-password', element: <ForgotPassword /> },
+    { path: '/reset-password/:token', element: <ResetPassword /> },
+    { path: '/verify-email/:token', element: <EmailVerification /> },
+  ])
+
   return (
     <div className="font-cairo" dir="rtl">
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password/:token" element={<ResetPassword />} />
-        <Route path="/verify-email/:token" element={<EmailVerification />} />
-      </Routes>
+      {routes}
     </div>
   )
 }
