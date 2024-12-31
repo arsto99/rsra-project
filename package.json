@@ -8,8 +8,9 @@
     "server": "nodemon server.js",
     "client": "vite",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@types/react": "^18.2.55",
