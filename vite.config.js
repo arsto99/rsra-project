@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // استبدل 'rsar' باسم المستودع الخاص بك
-const repoName = 'rsar'
+const repoName = 'rsra-project'
 
 export default defineConfig({
   plugins: [react()],
