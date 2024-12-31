@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.bg-gradient-custom {
+    background: linear-gradient(135deg, #00416A, #E4E5E6);
+}
+
+.top-gradient-bar {
+    background: linear-gradient(to right, #00416A, #4B79A1);
+}
+
+/* RTL Support */
+body {
+    direction: rtl;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #00416A;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+.login-container {
+    @apply bg-white p-4 rounded-lg shadow-md w-80;
+}
+
+.login-header {
+    @apply text-center mb-4;
+}
+
+.login-header h2 {
+    @apply mt-0 text-lg text-gray-600;
+}
+
+.form-group {
+    @apply mb-4;
+}
+
+.form-group label {
+    @apply block mb-2 text-gray-500;
+}
+
+.form-group input {
+    @apply w-full p-2 mb-2 border border-gray-300 rounded-lg;
+}
+
+.submit-btn {
+    @apply w-full p-2 bg-green-500 text-white rounded-lg cursor-pointer transition duration-300;
+}
+
+.submit-btn:hover {
+    @apply bg-green-400;
+}
+
+.loading {
+    @apply hidden mt-4 text-center;
+}
+
+.error-message {
+    @apply hidden mt-4 text-center text-red-500 p-2 rounded-lg bg-red-100;
+}
+
+.success-message {
+    @apply hidden mt-4 text-center text-green-500 p-2 rounded-lg bg-green-100;
+}
+
+/* تحسينات للهواتف المحمولة */
+@media (max-width: 480px) {
+    .login-container {
+        @apply m-2 p-3;
+    }
+    
+    .login-header h2 {
+        @apply text-lg;
+    }
+}

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root[dir="rtl"] .from-black {
+  --tw-gradient-from: black var(--tw-gradient-from-position);
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+:root[dir="rtl"] .to-blue-900 {
+  --tw-gradient-to: #1e3a8a var(--tw-gradient-to-position);
+}
+
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+
+  .input-primary {
+    @apply w-full px-3 py-2 bg-transparent border-b border-gray-600 text-white 
+           focus:outline-none focus:border-blue-400 transition-all duration-300;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-full 
+           hover:from-blue-500 hover:to-blue-700 focus:outline-none focus:ring-2 
+           focus:ring-blue-400 focus:ring-opacity-50 transition-all duration-300;
+  }
+
+  .input-primary::placeholder {
+    @apply text-transparent;
+  }
+}

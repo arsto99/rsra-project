@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# certificates
+/certs/*.pem
+/certs/*.key
+/certs/*.crt
+
+# database
+*.sqlite
+*.sqlite3
+
+# logs
+*.log
+
+# build output
+/dist
+
+# IDE
+.vscode
+.idea
