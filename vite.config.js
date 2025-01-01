@@ -5,13 +5,17 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   base: '/rsra-project/',
+  build: {
+    outDir: 'dist',
+    sourcemap: true
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
   server: {
-    port: 5173,
+    port: 3000,
     proxy: {
       '/api': {
         target: 'https://localhost:2003',
