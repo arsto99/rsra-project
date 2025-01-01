@@ -1,0 +1,121 @@
+.email-verification-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #001a33, #004080);
+  padding: 1rem;
+}
+
+.email-verification-card {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.verification-content {
+  text-align: center;
+  color: white;
+}
+
+.rasar-logo {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #fff, #00a2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #00a2ff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.success-message,
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.success-icon,
+.error-icon {
+  font-size: 3rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.success-icon {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.error-icon {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+.continue-button,
+.retry-button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.continue-button {
+  background: linear-gradient(to right, #0088ff, #00a2ff);
+  color: white;
+}
+
+.retry-button {
+  background: rgba(244, 67, 54, 0.8);
+  color: white;
+}
+
+.continue-button:hover,
+.retry-button:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
