@@ -1,47 +1,56 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
-import './Login.css';
+import { Link } from 'react-router-dom'
+import { Button, Input } from '@/components/ui'
 
-const Login = () => {
+export function Login() {
   return (
-    <div className="login-container">
-      <div className="login-left">
-        <h1 className="login-title">Login Page</h1>
-        <div className="login-card">
-          <h2 className="sign-in-title">Sign in</h2>
-          
-          <div className="input-group">
-            <input type="text" placeholder="Username" className="login-input" />
-            <input type="password" placeholder="Password" className="login-input" />
-          </div>
+    <div className="space-y-6">
+      <div>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          تسجيل الدخول
+        </h2>
+      </div>
 
-          <button className="sign-in-button">SIGN IN</button>
+      <form className="space-y-6">
+        <Input
+          label="البريد الإلكتروني"
+          type="email"
+          placeholder="أدخل بريدك الإلكتروني"
+          required
+        />
 
-          <div className="social-login">
-            <button className="social-button google">
-              <FaGoogle />
-            </button>
-            <button className="social-button facebook">
-              <FaFacebook />
-            </button>
-          </div>
+        <Input
+          label="كلمة المرور"
+          type="password"
+          placeholder="أدخل كلمة المرور"
+          required
+        />
 
-          <div className="login-links">
-            <Link to="/register" className="create-account">Create new account</Link>
-            <Link to="/forgot-password" className="forgot-password">Forgot password?</Link>
+        <div className="flex items-center justify-between">
+          <div className="text-sm">
+            <Link
+              to="/forgot-password"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              نسيت كلمة المرور؟
+            </Link>
           </div>
         </div>
-      </div>
-      
-      <div className="login-right">
-        <div className="welcome-text">
-          <h2>Welcome to the site</h2>
-          <div className="rasar-logo">RASAR</div>
+
+        <Button type="submit" fullWidth>
+          تسجيل الدخول
+        </Button>
+
+        <div className="text-center">
+          <Link
+            to="/register"
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            ليس لديك حساب؟ سجل الآن
+          </Link>
         </div>
-      </div>
+      </form>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

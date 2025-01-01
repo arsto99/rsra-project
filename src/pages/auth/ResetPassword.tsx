@@ -1,27 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './ResetPassword.css';
+import { Link } from 'react-router-dom'
+import { Button, Input } from '@/components/ui'
 
-const ResetPassword = () => {
+export function ResetPassword() {
   return (
-    <div className="reset-password-container">
-      <div className="reset-password-card">
-        <h2>Reset Password</h2>
-        <p>Enter your new password below.</p>
-        
-        <div className="input-group">
-          <input type="password" placeholder="New password" className="reset-password-input" />
-          <input type="password" placeholder="Confirm new password" className="reset-password-input" />
-        </div>
-
-        <button className="reset-button">Reset Password</button>
-
-        <div className="reset-password-links">
-          <Link to="/login" className="back-to-login">Back to Login</Link>
-        </div>
+    <div className="space-y-6">
+      <div>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          إعادة تعيين كلمة المرور
+        </h2>
+        <p className="mt-2 text-center text-sm text-gray-600">
+          أدخل كلمة المرور الجديدة
+        </p>
       </div>
-    </div>
-  );
-};
 
-export default ResetPassword;
+      <form className="space-y-6">
+        <Input
+          label="كلمة المرور الجديدة"
+          type="password"
+          placeholder="أدخل كلمة المرور الجديدة"
+          required
+        />
+
+        <Input
+          label="تأكيد كلمة المرور"
+          type="password"
+          placeholder="أدخل كلمة المرور مرة أخرى"
+          required
+        />
+
+        <Button type="submit" fullWidth>
+          تغيير كلمة المرور
+        </Button>
+
+        <div className="text-center">
+          <Link
+            to="/login"
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            العودة لتسجيل الدخول
+          </Link>
+        </div>
+      </form>
+    </div>
+  )
+}
+
+export default ResetPassword
