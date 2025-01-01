@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import './Register.css';
 
@@ -80,7 +81,7 @@ const Register = () => {
             </div>
 
             <div className="register-links">
-              <p>Already have an account? <a href="/login">Sign in</a></p>
+              <Link to="/login" className="back-to-login">Already have an account? Sign in</Link>
             </div>
           </form>
         </div>

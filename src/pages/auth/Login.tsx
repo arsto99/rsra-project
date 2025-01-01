@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import './Login.css';
 
@@ -27,8 +28,8 @@ const Login = () => {
           </div>
 
           <div className="login-links">
-            <a href="/register" className="create-account">Create new account</a>
-            <a href="/forgot-password" className="forgot-password">Forgot password?</a>
+            <Link to="/register" className="create-account">Create new account</Link>
+            <Link to="/forgot-password" className="forgot-password">Forgot password?</Link>
           </div>
         </div>
       </div>

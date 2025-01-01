@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
@@ -38,7 +39,7 @@ const ForgotPassword = () => {
             {message && <div className="success-message">{message}</div>}
 
             <div className="reset-links">
-              <a href="/login" className="back-to-login">Back to Login</a>
+              <Link to="/login" className="back-to-login">Back to Login</Link>
             </div>
           </form>
         </div>
