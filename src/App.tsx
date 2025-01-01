@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { AuthLayout } from './layouts'
 import { Login, Register, ForgotPassword, ResetPassword } from './pages/auth'
-import './styles/App.css'
 
 function App() {
   return (
