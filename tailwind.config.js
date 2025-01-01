@@ -11,7 +11,10 @@ module.exports = {
           900: '#00416A',
           600: '#4B79A1'
         }
-      }
+      },
+      fontFamily: {
+        cairo: ['Cairo', 'sans-serif'],
+      },
     },
   },
   plugins: [],
