@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
@@ -7,7 +6,7 @@ import ResetPassword from './pages/auth/ResetPassword'
 import EmailVerification from './pages/auth/EmailVerification'
 import './index.css'
 
-const App: React.FC = () => {
+function App() {
   return (
     <div className="font-cairo" dir="rtl">
       <Routes>

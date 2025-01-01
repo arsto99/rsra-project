@@ -1,184 +1,97 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from '../../components/ui/Button';
-import Input from '../../components/ui/Input';
-import Alert from '../../components/ui/Alert';
-import Card from '../../components/ui/Card';
-import PasswordStrength from '../../components/ui/PasswordStrength';
+import { FaGoogle, FaFacebook } from 'react-icons/fa';
+import './Register.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: ''
   });
-
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-
-  const [alert, setAlert] = useState<{
-    type: 'success' | 'error' | 'warning' | 'info';
-    message: string;
-  } | null>(null);
-
-  const validateForm = () => {
-    let isValid = true;
-    const newErrors = {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    };
-
-    if (!formData.name) {
-      newErrors.name = 'الاسم مطلوب';
-      isValid = false;
-    }
-
-    if (!formData.email) {
-      newErrors.email = 'البريد الإلكتروني مطلوب';
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'البريد الإلكتروني غير صالح';
-      isValid = false;
-    }
-
-    if (!formData.password) {
-      newErrors.password = 'كلمة المرور مطلوبة';
-      isValid = false;
-    }
-
-    if (!formData.confirmPassword) {
-      newErrors.confirmPassword = 'تأكيد كلمة المرور مطلوب';
-      isValid = false;
-    } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'كلمات المرور غير متطابقة';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      try {
-        // TODO: Implement registration logic
-        console.log('Form submitted:', formData);
-        setAlert({
-          type: 'success',
-          message: 'تم التسجيل بنجاح!'
-        });
-      } catch (error) {
-        console.error('Registration error:', error);
-        setAlert({
-          type: 'error',
-          message: 'حدث خطأ أثناء التسجيل. الرجاء المحاولة مرة أخرى.'
-        });
-      }
-    }
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-    // Clear error when user starts typing
-    if (errors[e.target.name as keyof typeof errors]) {
-      setErrors({
-        ...errors,
-        [e.target.name]: ''
-      });
-    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // سيتم إضافة منطق التسجيل هنا
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full">
-        {alert && (
-          <Alert
-            type={alert.type}
-            message={alert.message}
-            onClose={() => setAlert(null)}
-          />
-        )}
-        
-        <Card
-          title="إنشاء حساب جديد"
-          subtitle="قم بإنشاء حساب للوصول إلى لوحة التحكم"
-          className="mt-4"
-        >
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="space-y-4">
-              <Input
-                id="name"
-                name="name"
+    <div className="register-container">
+      <div className="register-left">
+        <h1 className="register-title">Register Page</h1>
+        <div className="register-card">
+          <h2 className="sign-up-title">Create Account</h2>
+          
+          <form onSubmit={handleSubmit} className="register-form">
+            <div className="input-group">
+              <input
                 type="text"
-                label="الاسم"
-                placeholder="أدخل اسمك"
-                value={formData.name}
+                name="username"
+                placeholder="Username"
+                className="register-input"
+                value={formData.username}
                 onChange={handleChange}
-                error={errors.name}
               />
-
-              <Input
-                id="email"
-                name="email"
+              <input
                 type="email"
-                label="البريد الإلكتروني"
-                placeholder="أدخل بريدك الإلكتروني"
+                name="email"
+                placeholder="Email"
+                className="register-input"
                 value={formData.email}
                 onChange={handleChange}
-                error={errors.email}
               />
-
-              <Input
-                id="password"
-                name="password"
+              <input
                 type="password"
-                label="كلمة المرور"
-                placeholder="أدخل كلمة المرور"
+                name="password"
+                placeholder="Password"
+                className="register-input"
                 value={formData.password}
                 onChange={handleChange}
-                error={errors.password}
               />
-              <PasswordStrength password={formData.password} />
-
-              <Input
-                id="confirmPassword"
-                name="confirmPassword"
+              <input
                 type="password"
-                label="تأكيد كلمة المرور"
-                placeholder="أعد إدخال كلمة المرور"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                className="register-input"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                error={errors.confirmPassword}
               />
             </div>
 
-            <div>
-              <Button type="submit" fullWidth>
-                تسجيل
-              </Button>
+            <button type="submit" className="sign-up-button">CREATE ACCOUNT</button>
+
+            <div className="social-register">
+              <p className="or-divider">Or register with</p>
+              <div className="social-buttons">
+                <button type="button" className="social-button google">
+                  <FaGoogle />
+                </button>
+                <button type="button" className="social-button facebook">
+                  <FaFacebook />
+                </button>
+              </div>
             </div>
 
-            <div className="text-center">
-              <Link
-                to="/login"
-                className="text-sm text-blue-600 hover:text-blue-800"
-              >
-                لديك حساب بالفعل؟ سجل دخولك
-              </Link>
+            <div className="register-links">
+              <p>Already have an account? <a href="/login">Sign in</a></p>
             </div>
           </form>
-        </Card>
+        </div>
+      </div>
+      
+      <div className="register-right">
+        <div className="welcome-text">
+          <h2>Join RASAR Today</h2>
+          <p>Create your account and start your journey</p>
+          <div className="rasar-logo">RASAR</div>
+        </div>
       </div>
     </div>
   );
