@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
@@ -15,7 +15,7 @@ function App() {
   ];
 
   return (
-    <BrowserRouter basename="/rsra-project">
+    <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         {routes.map((route) => (
@@ -23,7 +23,7 @@ function App() {
         ))}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
